@@ -11,7 +11,7 @@ const Iframe = styled.iframe`
 const ResumeContent = ({ title, content }) => {
     return (
         <BodyContent>
-            <Iframe src="https://drive.google.com/file/d/1leuEXnlHAP-hcW6bevIt67ZpoVTh4g7n/view?usp=sharing" frameBorder="0" title="VsCode"></Iframe>
+            <Iframe src="https://onedrive.live.com/embed?resid=920AE095783BE7B3%2122141&authkey=!AMHpJdkg5vgv_UQ&em=2" width="476" height="500" frameborder="0" scrolling="no"></Iframe>
         </BodyContent>
     );
 };

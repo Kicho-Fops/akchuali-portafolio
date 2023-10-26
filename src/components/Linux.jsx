@@ -3,7 +3,7 @@ import Default from "../components/Default";
 import Loader from "../elements/Loader/Loader";
 const LinuxContent = lazy(() => import("../elements/Linux/LinuxContent"));
 
-const Resume = () => {
+const Linux = () => {
 	return (
 		<Default heading="qemu" contextMenu={true} resizable={false}  programName="Qemu">
 			<Suspense fallback={<Loader />}>
@@ -13,4 +13,4 @@ const Resume = () => {
 	);
 };
 
-export default Resume;
+export default Linux;

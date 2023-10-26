@@ -89,6 +89,8 @@ const Action = props => {
 				case "HELP":
 					setAlertHidden(true);
 					break;
+				case "FOX":
+					document.location.href = '/animals'
 				default:
 					break;
 			}

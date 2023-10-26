@@ -5,7 +5,7 @@ import Draggable from "react-draggable";
 import bg from "../static/Fox.gif";
 import theme from "../styles/theme";
 import AlertContent from "../elements/Alert/AlertContent";
-import DockContent from "../elements/Dock/DockContent";
+import DockContentOriginal from "../elements/Dock/DockContent"; // Rename the import to avoid conflict
 import MenuContent from "../elements/Menu/MenuContent";
 import { css } from "styled-components";
 import { useLocation } from "react-router-dom";
@@ -46,6 +46,14 @@ const Container = styled.div`
 	background: ${theme.bodyBgWithOpacity};
 	${props => props.height && `height: ${props.height}`}
 `;
+const DockContent = styled(DockContentOriginal)`
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000; // Ensure it appears above other content
+`;
+
 
 const Default = props => {
 	const { pathname } = useLocation();

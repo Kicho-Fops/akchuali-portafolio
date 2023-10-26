@@ -9,11 +9,7 @@ const Iframe = styled.iframe`
 const Zone = () => {
 	return (
 		<BodyContent>
-			<Iframe
-				src="https://www.youtube.com/watch?v=UtF6Jej8yb4"
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			></Iframe>
+			<Iframe width="560" height="600" src="https://www.youtube.com/embed/NATSpYWERIE?si=B-Ddn7dUimyDYoT5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></Iframe>
 		</BodyContent>
 	);
 };

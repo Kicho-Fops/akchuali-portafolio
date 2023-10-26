@@ -80,7 +80,7 @@ const DockContent = () => {
 									/>
 								</li>
 							</a> */}
-							<a
+							{/*<a
 								href="https://github.com/Kirill-Makienko-Tkachenko"
 								target="_blank"
 							>
@@ -91,7 +91,7 @@ const DockContent = () => {
 										alt="mac"
 									/>
 								</li>
-							</a>
+						</a>*/}
 							<div className="separator" />
 							<a>
 								<Link to="/resume">

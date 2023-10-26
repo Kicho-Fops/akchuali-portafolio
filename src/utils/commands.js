@@ -73,7 +73,7 @@ let commandList = [
 	{
 		name: ["resume", "./resume", "resume.sh", "./resume.sh"],
 		action:  "<a href",
-		response: "<a href='./CV_Kirill_Makienko.pdf' download>Download my resume</a>",
+		response: "",
 		subPathStrict: [false],
 		description: "view my resume",
 	},
@@ -98,7 +98,7 @@ let commandList = [
 		// action: { PROJECTS: "" },
 		action: false,
 		response:
-			'Page Under Development 🚧🔨 | Until then Visit: <a href="https://minimalinfo.vercel.app/">"minimalinfo" to checkout my projects</a>',
+			'Page Under Development 🚧🔨 | For the moment I´ll list the main projects I worked on \n <h1>NASA HUMAN EXPLORATION ROVER CHALLENGE</h1> \n - I worked on the telemetry team in front and back teams of the main page, but mainly I worked on deploying everything on self hosted servers and trying the connection between the sensors and the Database \n <h1>SERVIDORES EL RUSO</h1> \n - This is my very own startup and the project ive sunken the most of my time for the last copule of years. Its main objective is to provide game servers for players in México and central america for them to not rely on server located  ',
 		subPathStrict: [false],
 		description: "checkout my projects",
 	},
@@ -154,7 +154,10 @@ let commandList = [
 		subPathStrict: [false],
 		description: "Credits for the creation of the page",
 	},
+
+	
 ];
+
 
 commandList = commandList.map(item => {
 	if (item.name[0] === "help") {
@@ -162,6 +165,20 @@ commandList = commandList.map(item => {
 	}
 	return item;
 });
+
+
+const customCommands = [
+
+		{
+		name: ["fox"],
+		action: "<a href",
+		response:
+			"Im a Fox 🦊",
+		subPathStrict: [false],
+		description: "fox",
+	},
+
+];
 
 const fileList = [
 	{
@@ -196,9 +213,7 @@ const getCommandList = commandList => {
 		//eslint-disable-next-line
 		let commandBuilder = {};
 		item.name.forEach(elem => {
-			let action = item.action
-				? { [item.name[0].toUpperCase()]: "" }
-				: null;
+			let action = item.action ? { [item.name[0].toUpperCase()]: "" } : null;
 			let resp = item.response;
 			commandBuilder = {
 				[elem]: {
@@ -223,7 +238,7 @@ const getCommandList = commandList => {
 			finalCommandList = { ...commandBuilder, ...finalCommandList };
 		});
 	});
-	// console.log(finalCommandList)
+	//console.log(finalCommandList)
 	return finalCommandList;
 };
 
@@ -255,6 +270,44 @@ const getArgListCd = fileList => {
 	return argList;
 };
 
+const getConstCommands = customCommands => {
+	let finalCommandList = {};
+	customCommands.forEach(item => {
+		//eslint-disable-next-line
+		let commandBuilder = {};
+		item.name.forEach(elem => {
+			let action = item.action ? { [item.name[0].toUpperCase()]: "" } : null;
+			let resp = item.response;
+			commandBuilder = {
+				[elem]: {
+					validArgs: {
+						_dir: {
+							action: action,
+							response: resp,
+						},
+						default: {
+							action: action,
+							response: resp,
+						},
+					},
+				},
+			};
+			if (item.subPathStrict[0]) {
+				commandBuilder[elem].validArgs[item.subPathStrict[1].name] = {
+					action: action,
+					response: item.subPathStrict[1].response,
+				};
+			}
+			finalCommandList = { ...commandBuilder, ...finalCommandList };
+		});
+	});
+	//console.log(finalCommandList)
+	
+	return finalCommandList;
+	
+};
+
+
 const commands = {
 	ls: {
 		validArgs: {
@@ -277,6 +330,7 @@ const commands = {
 		validArgs: getArgListCd(fileList),
 	},
 	...getCommandList(commandList),
+	...getConstCommands(customCommands),
 };
 
 export default commands;

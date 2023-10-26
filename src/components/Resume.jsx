@@ -5,7 +5,7 @@ const ResumeContent = lazy(() => import("../elements/Resume/ResumeContent"));
 
 const Resume = () => {
 	return (
-		<Default height="90%" heading="Resume" resizable={false} programName="Resume">
+		<Default height="90%" heading="Resume" resizable={true} programName="Resume">
 			<Suspense fallback={<Loader />}>
 				<ResumeContent />
 			</Suspense>
