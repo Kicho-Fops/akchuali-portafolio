@@ -51,7 +51,7 @@ const DockContent = () => {
 									/>
 								</li>
 							</Link>*/}
-							<a href="https://github.com/Kirill-Makienko-Tkachenko">
+							<a href="https://github.com/Kicho-Fops">
 								<li data-title="GitHub">
 									<img
 										src={GithubIcon}

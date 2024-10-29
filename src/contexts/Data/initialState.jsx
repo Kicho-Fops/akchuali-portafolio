@@ -1,5 +1,5 @@
 export const initialState = {
 	commands: [],
-	path: "root@gom:~$",
+	path: "root@Portafolio:~$",
 	alert: false,
 };

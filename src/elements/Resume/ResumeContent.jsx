@@ -11,7 +11,7 @@ const Iframe = styled.iframe`
 const ResumeContent = ({ title, content }) => {
     return (
         <BodyContent>
-            <Iframe src="https://onedrive.live.com/embed?resid=920AE095783BE7B3%2122141&authkey=!AMHpJdkg5vgv_UQ&em=2" width="476" height="500" frameborder="0" scrolling="no"></Iframe>
+            <Iframe src="https://1drv.ms/b/c/920ae095783be7b3/IQQbXX-En7ciRYM_sABfkl3WAdvrqCm3E7KpqLmEot4RfWQ" width="98" height="120" frameborder="0" scrolling="no"></Iframe>
         </BodyContent>
     );
 };

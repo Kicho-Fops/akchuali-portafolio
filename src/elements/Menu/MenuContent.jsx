@@ -1,9 +1,6 @@
 import "@styles/menubar.scss";
-import AppleIcon from "@static/apple.png";
-import BatteryIcon from "@static/battery.png";
-import WifiIcon from "@static/wifi.png";
-import ControlCenterIcon from "@static/controlcenter.png";
-import NotifyIcon from "@static/NotifyIcon.png";
+import VolumeWhite from "@static/volumeWhite.png";
+import WIFIWhite from "@static/WIFIWhite.png";
 // import IcloudIcon from "@static/IcloudIcon.png";
 
 const formatMinutes = min => {
@@ -37,9 +34,11 @@ const convertToReadableDate = timestamp => {
 	const currentDate = new Date(timestamp);
 	return (
 		<>
-			{shortenedDaysOfTheWeek[currentDate.getDay()]}{" "}
-			{currentDate.getDate()} {shortenedMonth[currentDate.getMonth()]}{" "}
-			<span className="time">
+			<span style={{ color: "white" }}>
+				{shortenedDaysOfTheWeek[currentDate.getDay()]}{" "}
+				{currentDate.getDate()} {shortenedMonth[currentDate.getMonth()]}{" "}
+			</span>
+			<span className="time" style={{ color: "white" }}>
 				{currentDate.getHours()}:
 				{formatMinutes(currentDate.getMinutes())}
 			</span>
@@ -50,25 +49,14 @@ const convertToReadableDate = timestamp => {
 const MenuContent = props => {
 	const menuItems = [
 		[
-			<img src={AppleIcon} alt="Apple logo" className="apple" />,
+			"Activities",
 			props.programName,
-			"File",
-			"Edit",
-			"View",
-			"Chat",
-			"Window",
-			"Help",
 		],
 		[
-			// <img src={IcloudIcon} alt="Cloud icon" className="right-icon" />,
-			<img src={BatteryIcon} alt="Battery icon" className="right-icon" />,
-			<img src={WifiIcon} alt="Wifi icon" className="right-icon" />,
-			<img
-				src={ControlCenterIcon}
-				alt="Control Center icon"
-				className="right-icon"
-			/>,
-			<img src={NotifyIcon} alt="Notify icon" className="right-icon" />,
+			<img src={VolumeWhite} alt="Volume icon" className="right-icon" />,
+			<img src={WIFIWhite} alt="Wifi icon" className="right-icon" />,
+		],
+		[
 			convertToReadableDate(Date.now()),
 		],
 	];
@@ -82,11 +70,17 @@ const MenuContent = props => {
 								typeof item !== "string" ? `img-container` : ``
 							}`}
 							key={index}
+							style={typeof item === "string" ? { color: "white" } : {}}
 						>
 							{item}
 						</div>
 					);
 				})}
+			</div>
+			<div className="center">
+				{menuItems[2].map((item, index) => (
+					<div key={index}>{item}</div>
+				))}
 			</div>
 			<div className="right-side">
 				{menuItems[1].map((item, index) => {
