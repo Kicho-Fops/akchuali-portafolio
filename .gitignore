@@ -118,3 +118,9 @@ dist
 .pnp.*
 
 .vercel
+
+/build
+
+copy.*
+
+vercel*.json
